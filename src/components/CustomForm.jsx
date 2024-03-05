@@ -30,10 +30,10 @@ const CustomForm = ({ addTask }) => {
           required
           autoFocus
           maxLength={60}
-          placeholder="Enter a new task"
+          placeholder="What needs to be done?"
         />
         <label htmlFor="task" className="label">
-          Enter a new task
+          What needs to be done?
         </label>
       </div>
       <button className="btn" aria-label="Add Task" type="submit">

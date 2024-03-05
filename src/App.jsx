@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h1>My Awesome Tasks⚡</h1>
+        <h1>What do I have to do?📝🤔</h1>
       </header>
       <CustomForm addTask={addTask} />
       {tasks && (
