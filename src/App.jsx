@@ -14,13 +14,25 @@ function App() {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
+  const toggleTask = (id) => {
+    setTasks(
+      prevState.map((t) => (t.id === id ? { ...t, checked: !t.checked } : t))
+    );
+  };
+
   return (
     <div className="container">
       <header>
         <h1>My Awesome Tasks⚡</h1>
       </header>
       <CustomForm addTask={addTask} />
-      {tasks && <TaskList tasks={tasks} deleteTask={deleteTask} />}
+      {tasks && (
+        <TaskList
+          tasks={tasks}
+          deleteTask={deleteTask}
+          toggleTask={toggleTask}
+        />
+      )}
     </div>
   );
 }
