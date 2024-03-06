@@ -1,28 +1,31 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
-import styles from "./TaskList.module.css";
-import {
-  CheckIcon,
-  PencilSquareIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
 
-const TaskItem = ({ task, deleteTask, toggleTask }) => {
+// styles
+import styles from "./TaskList.module.css";
+
+// Library imports
+import { CheckIcon } from "@heroicons/react/24/outline";
+import { PencilSquareIcon } from "@heroicons/react/24/outline";
+import { TrashIcon } from "@heroicons/react/24/outline";
+
+const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
   const [isChecked, setIsChecked] = useState(task.checked);
+
   const handleCheckboxChange = (e) => {
     setIsChecked(!isChecked);
     toggleTask(task.id);
   };
+
   return (
     <li className={styles.task}>
       <div className={styles["task-group"]}>
         <input
           type="checkbox"
           className={styles.checkbox}
-          checked={task.isChecked}
-          id={task.id}
-          name={task.name}
+          checked={isChecked}
           onChange={handleCheckboxChange}
+          name={task.name}
+          id={task.id}
         />
         <label htmlFor={task.id} className={styles.label}>
           {task.name}
@@ -35,7 +38,7 @@ const TaskItem = ({ task, deleteTask, toggleTask }) => {
         <button
           className="btn"
           aria-label={`Update ${task.name} Task`}
-          // onClick={}
+          onClick={() => enterEditMode(task)}
         >
           <PencilSquareIcon width={24} height={24} />
         </button>
@@ -51,5 +54,4 @@ const TaskItem = ({ task, deleteTask, toggleTask }) => {
     </li>
   );
 };
-
 export default TaskItem;
