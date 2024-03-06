@@ -1,9 +1,5 @@
 import { useState } from "react";
-
-// styles
 import styles from "./TaskList.module.css";
-
-// Library imports
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline";
